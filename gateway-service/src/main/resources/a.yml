@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: r1
+          uri: lb://NTIGABANYA-SERVICE
+          predicates:
+              - Path= /habonimanas/**
+        - id: r2
+          uri: lb://NTIGABANYA-SERVICE
+          predicates:
+              - Path= /countries/**
+        - id: r3
+          uri: lb://NTIGABANYA-SERVICE
+          predicates:
+              - Path= /sexualOrientations/**
+        - id: r4
+          uri: lb://NTIGABANYA-SERVICE
+          predicates:
+              - Path= /familyGroups/**
+        - id: r5
+          uri: lb://NTIGABANYAPARTNER-SERVICE
+          predicates:
+              - Path= /partners/**
+
+
+
