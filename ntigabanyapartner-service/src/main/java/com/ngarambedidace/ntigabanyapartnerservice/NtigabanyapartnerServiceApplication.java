@@ -19,20 +19,22 @@ public class NtigabanyapartnerServiceApplication {
     @Bean
     CommandLineRunner init(PartnerRepository partnerRepository) {
         return args -> {
-            partnerRepository.save(Partner.builder()
-                    .firstName("Christine")
-                    .secondName("Nsengiyumva")
-                    .build());
 
-            partnerRepository.save(Partner.builder()
-                    .firstName("Veronique")
-                    .secondName("Nahimana")
-                    .build());
+            Partner partner =new Partner();
+            partner.setFirstName("Christine");
+            partner.setSecondName("Nsengiyumva");
+            partnerRepository.save(partner);
 
-            partnerRepository.save(Partner.builder()
-                    .firstName("Christiane")
-                    .secondName("Nsengimana")
-                    .build());
+            Partner partner1 =new Partner();
+            partner1.setFirstName("Veronique");
+            partner1.setSecondName("Habimana");
+            partnerRepository.save(partner1);
+
+            Partner partner2 =new Partner();
+            partner2.setFirstName("Christine");
+            partner2.setSecondName("Nsengiyumva");
+            partnerRepository.save(partner2);
+
 
 
 

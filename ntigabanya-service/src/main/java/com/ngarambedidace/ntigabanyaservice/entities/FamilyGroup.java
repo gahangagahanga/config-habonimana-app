@@ -21,4 +21,20 @@ public class FamilyGroup {
     private String familyGroupName;
     @OneToMany(mappedBy = "familyGroup", fetch = FetchType.LAZY)
     private List<Habonimana> habonimanaList   ;
+
+    public String getFamilyGroupName() {
+        return familyGroupName;
+    }
+
+    public void setFamilyGroupName(String familyGroupName) {
+        this.familyGroupName = familyGroupName;
+    }
+
+    public List<Habonimana> getHabonimanaList() {
+        return habonimanaList;
+    }
+
+    public void setHabonimanaList(List<Habonimana> habonimanaList) {
+        this.habonimanaList = habonimanaList;
+    }
 }

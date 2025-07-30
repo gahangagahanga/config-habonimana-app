@@ -27,4 +27,6 @@ public class Wedding {
     private List<EnfanterPar> habonimanaKidsList;
     @Transient private Habonimana husband;
     @Transient private Partner wife;
+
+
 }

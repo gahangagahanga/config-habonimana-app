@@ -16,6 +16,8 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.*;
 
+import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
+
 @SpringBootApplication
 @EnableFeignClients
 public class WeddingsServiceApplication {
@@ -32,7 +34,7 @@ public class WeddingsServiceApplication {
             List<Habonimana> allHabonimanas = habonimanaRestClient.getAllHabonimanas().getContent().stream().toList();
             List<Partner> allPartners = partnerRestClient.getAllPartners().getContent().stream().toList();
 
-            allHabonimanas.forEach(habonimana -> {
+            allHabonimanas.forEach(habonimana ->{
                 Wedding wedding=Wedding.builder()
                         .weddingDate(new Date())
                         .habonimanaId(habonimana.getHabonimanaId())
@@ -48,9 +50,10 @@ public class WeddingsServiceApplication {
                         .build();
                 enfanterParRepository.save(enfanterPar);
 
-            });
+            } );
 
-            };
+
+        };
         }
     }
 

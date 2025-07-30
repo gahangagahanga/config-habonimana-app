@@ -1,5 +1,7 @@
 package com.ngarambedidace.ntigabanyaservice;
 
+import com.ngarambedidace.ntigabanyaservice.config.NtigabanyaConfigParams;
+import com.ngarambedidace.ntigabanyaservice.config.NtigabanyaGlobalParams;
 import com.ngarambedidace.ntigabanyaservice.entities.Country;
 import com.ngarambedidace.ntigabanyaservice.entities.FamilyGroup;
 import com.ngarambedidace.ntigabanyaservice.entities.Habonimana;
@@ -11,12 +13,14 @@ import com.ngarambedidace.ntigabanyaservice.repositories.SexualOrientationReposi
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 @SpringBootApplication
+@EnableConfigurationProperties({NtigabanyaConfigParams.class, NtigabanyaGlobalParams.class})
 public class NtigabanyaServiceApplication {
 
     public static void main(String[] args) {
@@ -33,62 +37,67 @@ public class NtigabanyaServiceApplication {
             country1.setHabonimanaList(new ArrayList<>());
             countryRepository.save(country1);
 
-            countryRepository.save(Country.builder()
-                    .countryName("Congo")
-                    .habonimanaList(new ArrayList<>())
-                    .build());
+            Country country2 = new Country();
+            country2.setCountryName("Congo");
+            country2.setHabonimanaList(new ArrayList<>());
+            countryRepository.save(country2);
 
-            familyGroupRepository.save(FamilyGroup.builder()
-                            .familyGroupName("Abanyarwanda")
-                            .habonimanaList(new ArrayList<>())
-                    .build());
-            familyGroupRepository.save(FamilyGroup.builder()
-                    .familyGroupName("Ubundi bwoko")
-                    .habonimanaList(new ArrayList<>())
-                    .build());
+            FamilyGroup familyGroup =new FamilyGroup();
+            familyGroup.setFamilyGroupName("Abanyarwanda");
 
-            sexualOrientationRepository.save(SexualOrientation.builder()
-                            .genderName("Male")
-                            .gender('M')
-                            .habonimanaList(new ArrayList<>())
-                    .build());
-            sexualOrientationRepository.save(SexualOrientation.builder()
-                    .genderName("Female")
-                    .gender('F')
-                    .habonimanaList(new ArrayList<>())
-                    .build());
+            familyGroupRepository.save(familyGroup);
+            FamilyGroup familyGroup1 =new FamilyGroup();
+            familyGroup1.setFamilyGroupName("\"Ubundi bwoko\"");
 
-            habonimanaRepository.save(Habonimana.builder()
-                            .firstName("Joachin")
-                            .secondName("Iteka")
-                            .email("nyaton2005@yahoo.fr")
-                            .birthDate(new Date())
-                            .country(country1)
-                            .familyGroup(familyGroupRepository.findAll().getFirst())
-                            .gender(sexualOrientationRepository.findAll().getFirst())
+            familyGroupRepository.save(familyGroup1);
 
-                    .build());
-            habonimanaRepository.save(Habonimana.builder()
-                    .firstName("Ngarambe")
-                    .secondName("Didace")
-                    .email("ngarambe2005@yahoo.fr")
-                    .birthDate(new Date())
-                    .country(country1)
-                    .familyGroup(familyGroupRepository.findAll().getFirst())
-                    .gender(sexualOrientationRepository.findAll().getFirst())
+            SexualOrientation sexualOrientation =new SexualOrientation();
+            sexualOrientation.setGenderName("Male");
+            sexualOrientation.setGender('M');
+            sexualOrientation.setHabonimanaList(new ArrayList<>());
 
-                    .build());
+            sexualOrientationRepository.save(sexualOrientation);
 
-            habonimanaRepository.save(Habonimana.builder()
-                    .firstName("Ntadambanya")
-                    .secondName("vincent")
-                    .email("ntadambanya2005@yahoo.fr")
-                    .birthDate(new Date())
-                    .country(country1)
-                    .familyGroup(familyGroupRepository.findAll().getFirst())
-                    .gender(sexualOrientationRepository.findAll().getFirst())
+            SexualOrientation sexualOrientation1 =new SexualOrientation();
+            sexualOrientation1.setGenderName("Female");
+            sexualOrientation1.setGender('F');
+            sexualOrientation1.setHabonimanaList(new ArrayList<>());
 
-                    .build());
+            sexualOrientationRepository.save(sexualOrientation1);
+
+            Habonimana habonimana=new Habonimana();
+            habonimana.setFirstName("Joachin");
+            habonimana.setSecondName("Iteka");
+            habonimana.setEmail("nyaton2005@yahoo.fr");
+            habonimana.setBirthDate(new Date());
+            habonimana.setCountry(country1);
+            habonimana.setFamilyGroup(familyGroup);
+            habonimana.setGender(sexualOrientation);
+
+            habonimanaRepository.save(habonimana);
+            Habonimana habonimana1=new Habonimana();
+            habonimana1.setFirstName("Ngarambe");
+            habonimana1.setSecondName("Vincent");
+            habonimana1.setEmail("ngarambe2005@yahoo.fr");
+            habonimana1.setBirthDate(new Date());
+            habonimana1.setCountry(country1);
+            habonimana1.setFamilyGroup(familyGroup);
+            habonimana1.setGender(sexualOrientation);
+
+            habonimanaRepository.save(habonimana1);
+            Habonimana habonimana2=new Habonimana();
+            habonimana2.setFirstName("Ntadambanya");
+            habonimana2.setSecondName("Didace");
+            habonimana2.setEmail("ntadambanya2005@yahoo.fr");
+            habonimana2.setBirthDate(new Date());
+            habonimana2.setCountry(country1);
+            habonimana2.setFamilyGroup(familyGroup);
+            habonimana1.setGender(sexualOrientation);
+
+            habonimanaRepository.save(habonimana2);
+
+
+
 
 
 

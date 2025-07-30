@@ -21,4 +21,20 @@ public class Country {
     private String countryName;
     @OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
     private List<Habonimana> habonimanaList ;
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
+    public List<Habonimana> getHabonimanaList() {
+        return habonimanaList;
+    }
+
+    public void setHabonimanaList(List<Habonimana> habonimanaList) {
+        this.habonimanaList = habonimanaList;
+    }
 }

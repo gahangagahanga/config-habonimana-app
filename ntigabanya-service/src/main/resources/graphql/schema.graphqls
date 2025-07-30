@@ -1,0 +1,10 @@
+type Query {
+habonimanas: [Habonimana]
+habonimana(id:ID!):Habonimana
+}
+type Habonimana {
+habonimanaId: Float,
+firstName:String,
+secondName:String,
+email:String
+}
