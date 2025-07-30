@@ -13,4 +13,7 @@ public class ConfigServiceApplication {
         SpringApplication.run(ConfigServiceApplication.class, args);
     }
 
+    //spring.cloud.config.server.git.uri=https://github.com/gahangagahanga/config-habonimana-app
+
 }
+
